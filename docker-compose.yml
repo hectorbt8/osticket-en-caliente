@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  db:
+    image: mariadb:10.11
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: secret_root_password
+      MYSQL_DATABASE: osticket
+      MYSQL_USER: osticket
+      MYSQL_PASSWORD: osticket_password
+    volumes:
+      - os-db-data:/var/lib/mysql
+
+  osticket:
+    image: osticket/osticket:latest
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_USER=osticket
+      - MYSQL_PASSWORD=osticket_password
+      - MYSQL_DATABASE=osticket
+    depends_on:
+      - db
+
+volumes:
+  os-db-data:
