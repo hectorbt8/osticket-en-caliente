@@ -1,13 +1,11 @@
 {
-    "name": "osTicket Demo",
-    "dockerComposeFile": "../docker-compose.yml",
-    "service": "osticket",
-    "workspaceFolder": "/workspace",
+    "name": "osTicket & Focalboard Space",
+    "image": "mcr.microsoft.com/devcontainers/universal:2",
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:1": {}
+    },
     "forwardPorts": [8080],
     "portsAttributes": {
-        "8080": {
-            "label": "osTicket Panel",
-            "visibility": "public"
-        }
+        "8080": { "label": "osTicket", "visibility": "public" }
     }
 }
