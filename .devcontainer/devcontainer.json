@@ -1,0 +1,13 @@
+{
+    "name": "osTicket Demo",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "osticket",
+    "workspaceFolder": "/workspace",
+    "forwardPorts": [8080],
+    "portsAttributes": {
+        "8080": {
+            "label": "osTicket Panel",
+            "visibility": "public"
+        }
+    }
+}
